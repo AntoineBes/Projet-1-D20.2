@@ -15,6 +15,8 @@
         <link href="{{ asset('plugins/colorbox/colorbox.css') }}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{{ asset('styles/main_styles.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('styles/responsive.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+        
              
     </head>
     <body>
@@ -160,60 +162,10 @@
                                 <div class="footer_title">Newsletter</div>
                                 <form action="#" class="newsletter_form" id="newsletter_form">
                                     <input type="email" class="newsletter_input" placeholder="Your email address" required="required">
-                                    <button class="newsletter_button"><span>subscribe<img src="images/arrow.png" alt=""></span></button>
+                                    <button class="newsletter_button"><span>subscribe<img src="{{ asset('images/arrow.png') }}" alt=""></span></button>
                                 </form>
                             </div>
-                        </div>
-
-                        <!-- Gallery -->
-                        <div class="col-lg-4 footer_col">
-                            <div class="footer_column">
-                                <div class="footer_title">Instagram</div>
-                                <div class="gallery d-flex flex-row align-items-start justify-content-between flex-wrap">
-
-                                    <!-- Gallery Item -->
-                                    <div class="gallery_item">
-                                        <a class="colorbox" href="images/gallery_1_large.jpg"><img src="images/gallery_1.jpg" alt=""></a>
-                                    </div>
-
-                                    <!-- Gallery Item -->
-                                    <div class="gallery_item">
-                                        <a class="colorbox" href="images/gallery_2_large.jpg"><img src="images/gallery_2.jpg" alt=""></a>
-                                    </div>
-
-                                    <!-- Gallery Item -->
-                                    <div class="gallery_item">
-                                        <a class="colorbox" href="images/gallery_3_large.jpg"><img src="images/gallery_3.jpg" alt=""></a>
-                                    </div>
-
-                                    <!-- Gallery Item -->
-                                    <div class="gallery_item">
-                                        <a class="colorbox" href="images/gallery_4_large.jpg"><img src="images/gallery_4.jpg" alt=""></a>
-                                    </div>
-
-                                    <!-- Gallery Item -->
-                                    <div class="gallery_item">
-                                        <a class="colorbox" href="images/gallery_5_large.jpg"><img src="images/gallery_5.jpg" alt=""></a>
-                                    </div>
-
-                                    <!-- Gallery Item -->
-                                    <div class="gallery_item">
-                                        <a class="colorbox" href="images/gallery_6_large.jpg"><img src="images/gallery_6.jpg" alt=""></a>
-                                    </div>
-
-                                    <!-- Gallery Item -->
-                                    <div class="gallery_item">
-                                        <a class="colorbox" href="images/gallery_7_large.jpg"><img src="images/gallery_7.jpg" alt=""></a>
-                                    </div>
-
-                                    <!-- Gallery Item -->
-                                    <div class="gallery_item">
-                                        <a class="colorbox" href="images/gallery_8_large.jpg"><img src="images/gallery_8.jpg" alt=""></a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        </div>                        
 
                     </div>
                 </div>
@@ -236,5 +188,10 @@
     <script src="{{ asset('plugins/progressbar/progressbar.min.js') }}"></script>
     <script src="{{ asset('plugins/parallax-js-master/parallax.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    
+    {% block js %}{% endblock %}
 </body>
 </html>
