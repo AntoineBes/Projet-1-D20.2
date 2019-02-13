@@ -9,11 +9,13 @@ use App\Entity\User;
 use App\Form\LoginUserType;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Form\UserType;
+use App\Repository\UserRepository;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use App\Form\ProfileUserType;
+use Doctrine\ORM\EntityManagerInterface;
+use Psr\Log\LoggerInterface;
 
-//use App\Repository\UserRepository;
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
-//use App\Manager\UserManager;
 
 class SecurityController extends AbstractController 
 {
@@ -68,4 +70,48 @@ class SecurityController extends AbstractController
         ]);
     }
     
+    /**
+     * @Route("/admin/user", name="all_user")
+     */
+    public function users(UserRepository $userRepository) {
+        $users = $userRepository->findAll();
+        return $this->render('security/user.html.twig', [
+                    'users' => $users,
+        ]);
+    }
+    
+    
+    /**
+   * @Route("admin/user/remove/{id}", name="removeuser_id")
+   * @ParamConverter("user", options={"mapping"={"id"="id"}})
+   */
+    
+     public function UserRemove(User $user)
+    {
+                $em = $this->getDoctrine()->getEntityManager();
+                $em->remove($user);
+                $em->flush();
+                $this->addFlash('notice', 'Conference supprimer');
+                return $this->redirectToRoute('all_user');
+    }
+    
+ /**
+* @Route("/profile", name="profile")
+*/
+public function profile(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger)
+{
+$user = $this->getUser();
+$form = $this->createForm(ProfileUserType::class, $user);
+$logger->info('User edited now !');
+$form->handleRequest($request);
+if ($form->isSubmitted() && $form->isValid()) {
+$entityManager->persist($user);
+$entityManager->flush();
+return $this->redirectToRoute('profile');
+}
+return $this->render('security/profile.html.twig', [
+'form' => $form->createView()
+]);
+}
+  
 }
