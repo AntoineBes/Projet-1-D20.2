@@ -26,76 +26,57 @@
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="#">
-                            <span>conf<span>pro</span></span>
-                            <span>conference</span>
+                        <a href="{{ path('home')}}">
+                            <span>CONF<span>2000</span></span>
+                            <span>De la qualité</span>
                         </a>
                     </div>
 
                     <!-- Main Navigation -->
                     <nav class="main_nav">
                         <ul class="d-flex flex-row align-items-center justify-content-start">
-                            <li class="active"><a href="index.html">Home</a></li>
+                            <li class="active"><a href="{{ path('home')}}">Accueil</a></li>
                             <li class="has_children">
-                                <a href="about.html">About us</a>
+                                <a href="#">Les conférences</a>
                                 <ul>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li class="has_children">
-                                        <a href="#">Nav Item</a>
-                                        <ul>
-                                            <li><a href="#">Nav Item</a></li>
-                                            <li><a href="#">Nav Item</a></li>
-                                            <li><a href="#">Nav Item</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li><a href="#">Nav Item</a></li>
+                                    <li><a href="#">Top 10 des conférences</a></li>                                    
+                                    <li><a href="#">Les conférences sans vote</a></li>                                    
                                 </ul>
                             </li>
-                            <li class="has_children">
-                                <a href="schedule.html">Schedule</a>
-                                <ul>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li class="has_children">
-                                        <a href="#">Nav Item</a>
-                                        <ul>
-                                            <li><a href="#">Nav Item</a></li>
-                                            <li><a href="#">Nav Item</a></li>
-                                            <li><a href="#">Nav Item</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li><a href="#">Nav Item</a></li>
-                                    <li><a href="#">Nav Item</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="blog.html">News</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li class="has_children">
+                                    <a href="#">Admin</a>
+                                    <ul>
+                                        <li><a href="#">Gestion des utilisateurs</a></li>                                    
+                                        <li><a href="#">Liste des conférences</a></li>
+
+                                        <li><a href="#">Créer une conférence</a></li>     
+
+                                    </ul>
+                                </li>
+                            {% endif %}
                         </ul>
                     </nav>
 
                     <div class="header_right ml-auto d-flex flex-row align-items-center justify-content-start">
                         <div class="log_reg">
                             <ul class="d-flex flex-row align-items-start justify-content-start">
-                                <li><a href="#">Login</a></li>
-                                <li><a href="#">Register</a></li>
+                                {% if is_granted( 'IS_AUTHENTICATED_FULLY') %}
+                                    <li><a href="">Mon Compte</a></li>    
+                                {% else %}
+                                    <li><a href="{{ path('login')}}">Connexion</a></li>
+                                    <li><a href="{{ path('register')}}">Inscription</a></li>
+                                {% endif %}
                             </ul>
-                        </div>
+                        </div>                                                                
+
                         <div class="social">
                             <ul class="d-flex flex-row align-items-center justify-content-start">
                                 <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>                                
                             </ul>
-                        </div>
-                        <div class="header_link">
-                            <a href="#">
-                                <span>get tickets<img src="images/arrow.png" alt=""></span>
-                            </a>
-                        </div>
+                        </div>                        
                         <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
                     </div>
                 </div>
@@ -109,11 +90,9 @@
                     <div class="menu_content d-flex flex-column align-items-center justify-content-start">
                         <nav class="menu_nav">
                             <ul class="d-flex flex-column align-items-center justify-content-start">
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About us</a></li>
-                                <li><a href="schedule.html">Schedule</a></li>
-                                <li><a href="blog.html">News</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{ path('home')}}">Accueil</a></li>
+                                <li><a href="#">Top 10 des conférences</a></li>                                    
+                                <li><a href="#">Les conférences sans vote</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -122,15 +101,15 @@
                             <ul class="d-flex flex-row align-items-center justify-content-start">
                                 <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>                                
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
+                                
+        <div class = " home_space">
 
             {% for label, messages in app.flashes %}
                 {% for message in messages %}                
@@ -140,8 +119,8 @@
                 {% endfor %}
             {% endfor %}
 
-        {% block body %}{% endblock %}
-         <!-- Footer -->
+            {% block body %}{% endblock %}
+        </div>
 
         <footer class="footer">
             <div class="footer_container">
