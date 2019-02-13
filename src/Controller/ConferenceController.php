@@ -26,7 +26,7 @@ class ConferenceController extends AbstractController
     }
     
     /**
-    * @Route("/ajout-conference", name="ajout conference")
+    * @Route("/admin/ajout-conference", name="ajout conference")
     */
     public function addConference(Request $request)
     {
@@ -47,7 +47,7 @@ class ConferenceController extends AbstractController
     
     
      /**
-    * @Route("/conf-edit/{conference_id}", requirements={"id"=".+"}, name="conf_modif")
+    * @Route("/admin/conf-edit/{conference_id}", requirements={"id"=".+"}, name="conf_modif")
     * @ParamConverter("conference", options={"id" = "conference_id"})
     */
     
