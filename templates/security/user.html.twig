@@ -9,8 +9,8 @@
 <p>{{ user.email }}</p>
 <p>{{ user.firstname }}</p>
 <p>{{ user.lastname }}</p>
+<a href="{{ path( 'removeuser_id', {'id': user.id}) }} ">Delete</a>
 
-<a href="{{ path( 'user_remove', {'id': user.id}) }} ">Delete</a>
 
 {% endfor %}
 {% endblock %}
