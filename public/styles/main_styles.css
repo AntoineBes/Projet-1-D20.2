@@ -1517,9 +1517,9 @@ section
 .contact_content
 {
 	padding-top: 92px;
-	padding-right: 190px;
+	/*padding-right: 190px;*/
 	padding-bottom: 103px;
-	padding-left: 15px;
+	/*padding-left: 15px;*/
 }
 .contact_title
 {
