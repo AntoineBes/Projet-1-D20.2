@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout conference!{% endblock %}
+
+{% block body %}
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+{#    {{dump(allConf)}}#}
+    LISTE CONFERENCES :</br></br>
+     {% for conf in allConf %}
+        title conf : <li>{{ conf.title|e }}</li>
+        Sous-titre conf : <li>{{ conf.sousTitre|e }}</li>
+        description conf : <li>{{ conf.description|e }}</li>
+        adress conf : <li>{{ conf.adresse|e }}</li>
+        date conf : <li>{{ conf.date|date("d/m/Y")}}</li>
+        in conf : <li>{{ conf.intervenant|e }}</li>
+        <a href="{{ path( 'conf_remove', {'conference_id': conf.id|e}) }}" class="btn btn-primary btn-lg square" role="button">Supprimer</a>
+        <a href="{{ path( 'conf_modif', {'conference_id': conf.id|e}) }}" class="btn btn-primary btn-lg square" role="button">modifier</a>
+        </br>
+    {% endfor %}
+    
+          
+    
+    
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+    </br>
+{% endblock %}
+
+
+
+

@@ -1513,3 +1513,138 @@ section
     margin-top: 94px;
     margin-bottom: 50px;
 }
+
+.contact_content
+{
+	padding-top: 92px;
+	/*padding-right: 190px;*/
+	padding-bottom: 103px;
+	/*padding-left: 15px;*/
+}
+.contact_title
+{
+	font-size: 30px;
+	font-weight: 700;
+	color: #0a2642;
+}
+.contact_text
+{
+	margin-top: 15px;
+}
+.contact_list
+{
+	margin-top: 43px;
+}
+.contact_list ul li
+{
+	font-size: 15px;
+	font-weight: 400;
+	color: #68727c;
+}
+.contact_list ul li:not(:last-of-type)
+{
+	margin-bottom: 22px;
+}
+.contact_form_container
+{
+	margin-top: 56px;
+}
+.contact_form
+{
+	display: block;
+	width: 100%;
+}
+.contact_form > div > div
+{
+	width: calc((100% - 30px) / 2);
+}
+.contact_input
+{
+	width: 100%;
+	height: 55px;
+	background: #ffffff;
+	border: solid 1px #d8e5e7;
+	outline: none;
+	padding-left: 15px;
+	margin-bottom: 24px;
+	font-size: 15px;
+	font-weight: 500;
+	color: #68727c;
+}
+.contact_input:focus
+{
+	border-color: #ff9000;
+}
+.contact_textarea
+{
+	height: 190px;
+	padding-top: 15px;
+	font-weight: 400;
+}
+.contact_input::-webkit-input-placeholder
+{
+	font-size: 15px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #68727c !important;
+}
+.contact_input:-moz-placeholder
+{
+	font-size: 15px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #68727c !important;
+}
+.contact_input::-moz-placeholder
+{
+	font-size: 15px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #68727c !important;
+} 
+.contact_input:-ms-input-placeholder
+{ 
+	font-size: 15px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #68727c !important;
+}
+.contact_input::input-placeholder
+{
+	font-size: 15px !important;
+	font-weight: 400 !important;
+	font-style: italic;
+	color: #68727c !important;
+}
+.contact_button
+{
+	width: 206px;
+	height: 59px;
+	background: #7f66ff;
+	border: none;
+	outline: none;
+	border-bottom: solid 3px #0a2642;
+	cursor: pointer;
+	margin-top: 11px;
+        font-size: 14px;
+	font-weight: 900;
+	color: #ffffff;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+
+.contact_button span img
+{
+	margin-left: 15px;
+	margin-bottom: 2px;
+	-webkit-transition: all 700ms ease;
+	-moz-transition: all 700ms ease;
+	-ms-transition: all 700ms ease;
+	-o-transition: all 700ms ease;
+	transition: all 700ms ease;
+}
+.contact_button:hover span img
+{
+	transform: translateX(5px);
+}
+
