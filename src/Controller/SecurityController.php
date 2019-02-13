@@ -9,7 +9,11 @@ use App\Entity\User;
 use App\Form\LoginUserType;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Form\UserType;
+use App\Repository\UserRepository;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Doctrine\ORM\EntityManagerInterface;
+use Psr\Log\LoggerInterface;
+
 
 //use App\Repository\UserRepository;
 //use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -68,4 +72,25 @@ class SecurityController extends AbstractController
         ]);
     }
     
+    /**
+     * @Route("/admin/user", name="all_user")
+     */
+    public function users(UserRepository $userRepository) {
+        $users = $userRepository->findAll();
+        return $this->render('security/user.html.twig', [
+                    'users' => $users,
+        ]);
+    }
+    /**
+* @Route("admin/user/remove/{id}", name="user_remove")
+*/
+public function remove(User $user, EntityManagerInterface
+$entityManager, LoggerInterface $logger)
+{
+$entityManager ->remove($user);
+$logger->info('User Deleted now !');
+$entityManager ->flush();
+return $this->redirectToRoute( '');
 }
+}
+
