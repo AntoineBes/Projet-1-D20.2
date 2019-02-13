@@ -1,22 +1,17 @@
 {% extends 'base.html.twig' %}
 {% block title %}S'inscrire - CONF2000 {% endblock %}
 {% block body %}
-    
-    
-    
 
-    <!-- Contact Content -->
-    
     <center>
-    <div class="col-xl-6 order-xl-2 order-1">
-        <div class="contact_content">
-            <div class="contact_title">Formulaire d'inscription</div>
-            <div class="contact_text">
-                <p>Vos données seront revendues aux plus offrant !</p>
-            </div>
-            
-            <div class="contact_form_container">
-                {{ form_start(form, {'attr': {'class': 'contact_form'}}) }}
+        <div class="col-xl-6 order-xl-2 order-1">
+            <div class="contact_content">
+                <div class="contact_title">Formulaire d'inscription</div>
+                <div class="contact_text">
+                    <p>Vos données seront revendues aux plus offrant !</p>
+                </div>
+
+                <div class="contact_form_container">
+                    {{ form_start(form, {'attr': {'class': 'contact_form'}}) }}
                     <div class="d-flex flex-md-row flex-column align-items-start justify-content-between">                        
                         <div>{{ form_widget(form.firstname, {'attr': {'placeholder': 'Prenom...', 'class': 'contact_input'}}) }} </div>
                         <div>{{ form_widget(form.lastname, {'attr': {'placeholder': 'Nom...', 'class': 'contact_input'}}) }} </div>                        
@@ -27,15 +22,12 @@
                         <div>{{ form_widget(form.password.second, {'attr': {'placeholder': 'Confirmation...', 'class': 'contact_input'}}) }} </div>                        
                     </div>
                     {{ form_row(form.submit, {'label': 'Inscription !', 'attr': {'class': 'contact_button'}}) }}
-                    
-                {{ form_end(form) }}
+
+                    {{ form_end(form) }}
+                </div>
             </div>
         </div>
-    </div>
-    </center>
-
-    
-    
+    </center>    
 
 {% endblock %}
 

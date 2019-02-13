@@ -50,9 +50,9 @@
                                     <a href="#">Admin</a>
                                     <ul>
                                         <li><a href="#">Gestion des utilisateurs</a></li>                                    
-                                        <li><a href="#">Liste des conférences</a></li>
+                                        <li><a href="{{ path('conference')}}">Liste des conférences</a></li>
 
-                                        <li><a href="#">Créer une conférence</a></li>     
+                                        <li><a href="{{ path('ajout conference')}}">Créer une conférence</a></li>     
 
                                     </ul>
                                 </li>
@@ -64,7 +64,8 @@
                         <div class="log_reg">
                             <ul class="d-flex flex-row align-items-start justify-content-start">
                                 {% if is_granted( 'IS_AUTHENTICATED_FULLY') %}
-                                    <li><a href="">Mon Compte</a></li>    
+                                    <li><a href="">Mon compte</a></li>    
+                                    <li><a href="/logout">Se déconnecter</a></li>    
                                 {% else %}
                                     <li><a href="{{ path('login')}}">Connexion</a></li>
                                     <li><a href="{{ path('register')}}">Inscription</a></li>
