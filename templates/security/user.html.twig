@@ -4,21 +4,16 @@
 
 {% block body %}
 
-  
-    
-    
-    
-    
-        <div class="blog">
-            <div class="container">
-                <div class="row">
-              
-                    
-                    
-                    
-                      {% for user in users %}
-                    
-                          <div class="col-lg-9">
+
+
+
+
+
+    <div class="blog">
+        <div class="container">
+            <div class="row">
+                {% for user in users %}
+                    <div class="col-lg-9">
                         <div class="blog_posts">
                             <div class="blog_post">
                                 <div class="blog_post_image"><img src="images/blog_1.jpg" alt=""></div>
@@ -43,36 +38,36 @@
                             </div>
                         </div>
                     </div>
-                                  
-                      </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                                    </br>
-                     {% endfor %}
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                </div>
+
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
         </div>
+    </div>
 {% endblock %}
