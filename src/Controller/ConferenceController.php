@@ -91,6 +91,15 @@ class ConferenceController extends AbstractController
     
  
     
-    
+    /**
+* @Route("/conference/{id}", name="conference_id")
+*/
+
+public function detail(conference $id){ 
+        return $this->render('conference/id.html.twig', array(
+            'conference' => $id,
+            
+            ));
+}
     
 }
