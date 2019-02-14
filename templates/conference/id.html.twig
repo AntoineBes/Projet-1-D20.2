@@ -1,0 +1,17 @@
+{% include 'base.html.twig' %}
+
+{% block title %}Hello !{% endblock %}
+
+{% block body %}
+
+
+
+    <p>{{ conference.title }}</p><br>
+<p>{{ conference.adresse }}</p>
+<br>
+<p>{{ conference.description }} </p>
+<p>{{ conference.date | date("d/n/Y") }} </p>
+<p>{{ conference.intervenant }} </p>
+<p>{{ conference.soustitre }} </p>
+
+{% endblock %}
