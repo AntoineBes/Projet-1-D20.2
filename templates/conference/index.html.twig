@@ -3,40 +3,53 @@
 {% block title %}Ajout conference!{% endblock %}
 
 {% block body %}
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-{#    {{dump(allConf)}}#}
-    LISTE CONFERENCES :</br></br>
-     {% for conf in allConf %}
-        title conf : <li>{{ conf.title|e }}</li>
-        Sous-titre conf : <li>{{ conf.sousTitre|e }}</li>
-        description conf : <li>{{ conf.description|e }}</li>
-        adress conf : <li>{{ conf.adresse|e }}</li>
-        date conf : <li>{{ conf.date|date("d/m/Y H:i")}}</li>
-        in conf : <li>{{ conf.intervenant|e }}</li>
-        <a href="{{ path( 'conf_remove', {'conference_id': conf.id|e}) }}" class="btn btn-primary btn-lg square" role="button">Supprimer</a>
-        <a href="{{ path( 'conf_modif', {'conference_id': conf.id|e}) }}" class="btn btn-primary btn-lg square" role="button">modifier</a>
-        </br>
-    {% endfor %}
-    
-          
-    
-    
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
-    </br>
+
+    <div class="blog">
+        <div class="container">
+            <div class="row">
+                {% for conf in allConf %}
+                      </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                  
+                    <div class="col-lg-9 confDiv">
+                        <div class="blog_posts">
+
+                            <div class="blog_post">
+                                <div class="blog_post_image"><img src="images/blog_1.jpg" alt=""></div>
+                                <div class="blog_post_container">
+                                    <div class="blog_post_content text-center">
+                                        <div class="blog_post_date">Date et heure : {{ conf.date|date("d/m/Y H:i")}}</div>
+                                        <div class="blog_post_title"><h3><a href="#">{{ conf.title|e }}</a></h3></div>
+                                        <div class="blog_post_info">
+                                            <ul class="">
+                                                <li></br>Catgeory : {{ conf.sousTitre|e }}</br></li>
+                                                <li></br>Adresse : {{ conf.adresse|e }}</br></li>
+                                                <li></br>Intervenant : {{ conf.intervenant|e }}</br></li>
+                                            </ul>
+                                        </div>
+                                        <div class="blog_post_text">
+                                            <p>{{ conf.description|e }}</p>
+                                        </div>
+                                        <div class="button button_2 blog_post_button"><a href="{{ path( 'conf_remove', {'conference_id': conf.id|e}) }}"><span>Supprimer</span><img src="images/arrow.png" alt=""></a></div>
+                                        <div class="button button_2 blog_post_button"><a href="{{ path( 'conf_modif', {'conference_id': conf.id|e}) }}"><span>Modifier</span><img src="images/arrow.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                    </br>
+                    </br>
+                    </br>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 
