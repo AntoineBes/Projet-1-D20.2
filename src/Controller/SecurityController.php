@@ -91,7 +91,7 @@ class SecurityController extends AbstractController
                 $em = $this->getDoctrine()->getEntityManager();
                 $em->remove($user);
                 $em->flush();
-                $this->addFlash('notice', 'Conference supprimer');
+                $this->addFlash('notice', 'User supprimer !');
                 return $this->redirectToRoute('all_user');
     }
     
