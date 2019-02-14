@@ -18,10 +18,9 @@ class ConferenceType extends AbstractType {
                 ->add('description')
                 ->add('adresse')
                 ->add('date', DateTimeType::class, [
-                    'widget' => 'single_text',
-                    
-                    'html5' => false,
-                    
+                    'format' => 'yyyy-MM-dd HH:mm',
+                    'widget' => 'single_text',                    
+                    'html5' => false,                    
                     'attr' => ['class' => 'js-datepicker'],
                 ])
                 ->add('intervenant')
