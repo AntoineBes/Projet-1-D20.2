@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use App\Form\ProfileUserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
-
+use App\Form\EditUserType;
 
 class SecurityController extends AbstractController 
 {
@@ -113,5 +113,28 @@ return $this->render('security/profile.html.twig', [
 'form' => $form->createView()
 ]);
 }
-  
+
+     /**
+    * @Route("/admin/user/{user_id}", requirements={"id"=".+"}, name="edit_user")
+    * @ParamConverter("user", options={"id" = "user_id"})
+    */
+    
+     public function EditUser(User $user, Request $request)
+    {
+            $conf = $user;
+            $form = $this->createForm(EditUserType::class, $conf);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($conf);
+                $entityManager->flush();
+                $this->addFlash('notice', 'User modifier');
+                return $this->redirectToRoute('all_user'); 
+            } 
+     
+        return $this->render('security/edituser.html.twig', [
+            'form' => $form->createView(),
+        ]);
+         
+    }
 }
