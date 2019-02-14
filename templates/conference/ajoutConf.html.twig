@@ -29,25 +29,25 @@
                         <div>{{ form_widget(form.date, {'attr': {'placeholder': 'Date de la conf...', 'class': 'contact_input datetimepicker-input', 'data-target': '#conference_date', 'data-toggle': 'datetimepicker'}}) }}</div>                        
                     </div>
                     {{ form_widget(form.sous_titre, {'attr': {'placeholder': 'Type de conf...', 'class': 'contact_input'}}) }}
-                    
-                    
-                    
-                    {{ form_row(form.submit, {'label': 'Inscription !', 'attr': {'class': 'contact_button'}}) }}
-                    
-                    
-                    
-                    
-                
-                    
-                    
-                </div>
-            
 
-                    {{ form_end(form) }}
+
+
+                    {{ form_row(form.submit, {'label': 'Inscription !', 'attr': {'class': 'contact_button'}}) }}
+
+
+
+
+
+
+
                 </div>
+
+
+                {{ form_end(form) }}
             </div>
         </div>
-    </center>    
+    </div>
+</center>    
 
 
 
@@ -58,12 +58,17 @@
 
 
 {% block js %}
-            <script type="text/javascript">
-            $(function () {
-                $('#conference_date').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-{#            viewMode: 'years'#}
-        });
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var txt = $('#conference_date').val();
+            
+            
+            $('#conference_date').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm',
+                use24hours: true
             });
-        </script>
+            document.getElementById("conference_date").value = txt;
+            
+        });
+    </script>
 {% endblock %}

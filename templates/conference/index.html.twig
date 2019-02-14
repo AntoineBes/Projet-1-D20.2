@@ -19,7 +19,7 @@
         Sous-titre conf : <li>{{ conf.sousTitre|e }}</li>
         description conf : <li>{{ conf.description|e }}</li>
         adress conf : <li>{{ conf.adresse|e }}</li>
-        date conf : <li>{{ conf.date|date("d/m/Y h:i")}}</li>
+        date conf : <li>{{ conf.date|date("d/m/Y H:i")}}</li>
         in conf : <li>{{ conf.intervenant|e }}</li>
         <a href="{{ path( 'conf_remove', {'conference_id': conf.id|e}) }}" class="btn btn-primary btn-lg square" role="button">Supprimer</a>
         <a href="{{ path( 'conf_modif', {'conference_id': conf.id|e}) }}" class="btn btn-primary btn-lg square" role="button">modifier</a>
