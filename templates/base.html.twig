@@ -52,11 +52,9 @@
                                 <li class="has_children">
                                     <a href="#">Admin</a>
                                     <ul>
-                                        <li><a href="#">Gestion des utilisateurs</a></li>                                    
+                                        <li><a href="{{ path('all_user')}}">Gestion des utilisateurs</a></li>                                    
                                         <li><a href="{{ path('conference')}}">Liste des conférences</a></li>
-
                                         <li><a href="{{ path('ajout conference')}}">Créer une conférence</a></li>     
-
                                     </ul>
                                 </li>
                             {% endif %}

@@ -16,9 +16,7 @@ use App\Form\ProfileUserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 
-
-class SecurityController extends AbstractController 
-{
+class SecurityController extends AbstractController {
 
     /**
      * @Route("/security", name="security")
@@ -55,21 +53,20 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils) {
         $user = new User();
-        $form = $this->createForm(LoginUserType::class, $user);       
-        
-        if($authenticationUtils->getLastAuthenticationError() != null){
+        $form = $this->createForm(LoginUserType::class, $user);
+
+        if ($authenticationUtils->getLastAuthenticationError() != null) {
             $this->addFlash('danger', 'mot de passe non valide');
-        }
-        else{
+        } else {
 //            $this->addFlash('success', 'Vous etes connectés');
         }
-        
+
         return $this->render('security/login.html.twig', [
                     'error' => $authenticationUtils->getLastAuthenticationError(),
                     'form' => $form->createView()
         ]);
     }
-    
+
     /**
      * @Route("/admin/user", name="all_user")
      */
@@ -79,39 +76,35 @@ class SecurityController extends AbstractController
                     'users' => $users,
         ]);
     }
-    
-    
+
     /**
-   * @Route("admin/user/remove/{id}", name="removeuser_id")
-   * @ParamConverter("user", options={"mapping"={"id"="id"}})
-   */
-    
-     public function UserRemove(User $user)
-    {
-                $em = $this->getDoctrine()->getEntityManager();
-                $em->remove($user);
-                $em->flush();
-                $this->addFlash('notice', 'Conference supprimer');
-                return $this->redirectToRoute('all_user');
+     * @Route("admin/user/remove/{id}", name="removeuser_id")
+     * @ParamConverter("user", options={"mapping"={"id"="id"}})
+     */
+    public function UserRemove(User $user) {
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->remove($user);
+        $em->flush();
+        $this->addFlash('notice', 'Conference supprimer');
+        return $this->redirectToRoute('all_user');
     }
-    
- /**
-* @Route("/profile", name="profile")
-*/
-public function profile(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger)
-{
-$user = $this->getUser();
-$form = $this->createForm(ProfileUserType::class, $user);
-$logger->info('User edited now !');
-$form->handleRequest($request);
-if ($form->isSubmitted() && $form->isValid()) {
-$entityManager->persist($user);
-$entityManager->flush();
-return $this->redirectToRoute('profile');
-}
-return $this->render('security/profile.html.twig', [
-'form' => $form->createView()
-]);
-}
-  
+
+    /**
+     * @Route("/profile", name="profile")
+     */
+    public function profile(Request $request, EntityManagerInterface $entityManager, LoggerInterface $logger) {
+        $user = $this->getUser();
+        $form = $this->createForm(ProfileUserType::class, $user);
+        $logger->info('User edited now !');
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($user);
+            $entityManager->flush();
+            return $this->redirectToRoute('profile');
+        }
+        return $this->render('security/profile.html.twig', [
+                    'form' => $form->createView()
+        ]);
+    }
+
 }
