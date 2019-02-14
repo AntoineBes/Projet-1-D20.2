@@ -20,6 +20,7 @@
                 <div class="home_slider_container">
                     <div class="owl-carousel owl-theme home_slider">
 
+                        {% if firstConf[0] is defined %}
                         <!-- Slide -->
                         <div class="slide">
                             <div class="background_image" style="background-image:url(images/index.jpg)"></div>
@@ -30,16 +31,16 @@
                                             <div class="home_content">
                                                 <div class="home_title">
                                                     <h1>
-                                                        <span>2019</span>
-                                                        <span>Marketing</span>
-                                                        <span>Conference</span>
+                                                        <span>{{ firstConf[0].date|date("d/m/Y") }}</span>
+                                                        <span>{{ firstConf[0].title }}</span>
+                                                        <span>{{ firstConf[0].soustitre }}</span>
                                                     </h1>
                                                 </div>
                                                 <div class="home_info_container">
                                                     <div class="home_info">
                                                         <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                            <li>12-16 February 2019</li>
-                                                            <li>Miami , FL</li>
+                                                            <li>{{ firstConf[0].date|date("H:i") }}</li>
+                                                            <li>{{ firstConf[0].adresse }}</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -50,7 +51,8 @@
                                 </div>
                             </div>
                         </div>
-
+                        {% endif %}
+                        {% if firstConf[1] is defined %}
                         <!-- Slide -->
                         <div class="slide">
                             <div class="background_image" style="background-image:url(images/index.jpg)"></div>
@@ -61,27 +63,28 @@
                                             <div class="home_content">
                                                 <div class="home_title">
                                                     <h1>
-                                                        <span>2019</span>
-                                                        <span>Marketing</span>
-                                                        <span>Conference</span>
+                                                        <span>{{ firstConf[1].date|date("d/m/Y") }}</span>
+                                                        <span>{{ firstConf[1].title }}</span>
+                                                        <span>{{ firstConf[1].soustitre }}</span>
                                                     </h1>
                                                 </div>
                                                 <div class="home_info_container">
                                                     <div class="home_info">
                                                         <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                            <li>12-16 February 2019</li>
-                                                            <li>Miami , FL</li>
+                                                            <li>{{ firstConf[1].date|date("H:i") }}</li>
+                                                            <li>{{ firstConf[1].adresse }}</li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="images/arrow_2.png" alt=""></span></a></div>
+                                                <div class="button button_1 home_button"><a href="#"><span>Plus d'info<img src="images/arrow_2.png" alt=""></span></a></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        {% endif %}
+                        {% if firstConf[2] is defined %}
                         <!-- Slide -->
                         <div class="slide">
                             <div class="background_image" style="background-image:url(images/index.jpg)"></div>
@@ -92,29 +95,32 @@
                                             <div class="home_content">
                                                 <div class="home_title">
                                                     <h1>
-                                                        <span>2019</span>
-                                                        <span>Marketing</span>
-                                                        <span>Conference</span>
+                                                        <span>{{ firstConf[2].date|date("d/m/Y") }}</span>
+                                                        <span>{{ firstConf[2].title }}</span>
+                                                        <span>{{ firstConf[2].soustitre }}</span>
                                                     </h1>
                                                 </div>
                                                 <div class="home_info_container">
                                                     <div class="home_info">
                                                         <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                            <li>12-16 February 2019</li>
-                                                            <li>Miami , FL</li>
+                                                            <li>{{ firstConf[2].date|date("H:i") }}</li>
+                                                            <li>{{ firstConf[2].adresse }}</li>
                                                         </ul>
                                                     </div>
                                                 </div>
-                                                <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="images/arrow_2.png" alt=""></span></a></div>
+                                                <div class="button button_1 home_button"><a href="#"><span>Plus d'info<img src="images/arrow_2.png" alt=""></span></a></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
+                        
 
                     </div>
 
+                        
                     <!-- Home Slider Dots -->
                     <div class="home_slider_dots_container">
                         <div class="container">
@@ -122,9 +128,15 @@
                                 <div class="col">
                                     <div class="home_slider_dots">
                                         <ul id="home_slider_custom_dots" class="home_slider_custom_dots d-flex flex-row align-items-start justify-content-start">
+                                            {% if firstConf[0] is defined %}
                                             <li class="home_slider_custom_dot active">01.</li>
+                                            {% endif %}
+                                            {% if firstConf[1] is defined %}
                                             <li class="home_slider_custom_dot">02.</li>
+                                            {% endif %}
+                                            {% if firstConf[2] is defined %}
                                             <li class="home_slider_custom_dot">03.</li>
+                                            {% endif %}
                                         </ul>
                                     </div>
                                 </div>
@@ -298,10 +310,15 @@
                             </div>
                         </div>
 
+                        
+                        
                     </div>
                 </div>
             </div>
-
+            <div class = "container">
+                <div class="button button_1 home_button col-3"><a href="#"><span><img src="images/arrow_3.png" alt="">  Précédent</span></a></div>
+                <div class="button button_1 home_button col-3" style = "float:right"><a href="#"><span>Suivant<img src="images/arrow_2.png" alt=""></span></a></div>
+            </div>
 
 
 

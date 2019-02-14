@@ -55,21 +55,20 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils) {
         $user = new User();
-        $form = $this->createForm(LoginUserType::class, $user);       
-        
-        if($authenticationUtils->getLastAuthenticationError() != null){
+        $form = $this->createForm(LoginUserType::class, $user);
+
+        if ($authenticationUtils->getLastAuthenticationError() != null) {
             $this->addFlash('danger', 'mot de passe non valide');
-        }
-        else{
+        } else {
 //            $this->addFlash('success', 'Vous etes connectés');
         }
-        
+
         return $this->render('security/login.html.twig', [
                     'error' => $authenticationUtils->getLastAuthenticationError(),
                     'form' => $form->createView()
         ]);
     }
-    
+
     /**
      * @Route("/admin/user", name="all_user")
      */
@@ -79,9 +78,9 @@ class SecurityController extends AbstractController
                     'users' => $users,
         ]);
     }
-    
-    
+
     /**
+
    * @Route("admin/user/remove/{id}", name="removeuser_id")
    * @ParamConverter("user", options={"mapping"={"id"="id"}})
    */
@@ -137,4 +136,5 @@ return $this->render('security/profile.html.twig', [
         ]);
          
     }
+
 }
