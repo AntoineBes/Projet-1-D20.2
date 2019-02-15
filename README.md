@@ -1,7 +1,7 @@
 # Projet-1-D20.2
 Antoine BESNARD, Antoine MOTTE, Lucas FOUSSIER<br>
 
-![alt text](https://github.com/AntoineBes/Projet-1-D20.2/tree/devlopment/public/images/IMGCONF1.png)
+![alt text](https://github.com/AntoineBes/Projet-1-D20.2/public/images/IMGCONF1.png)
 <br>
 
 URL:
