@@ -50,10 +50,16 @@ private $roles;
  */
 private $password;
 
+/**
+ * @ORM\OneToMany(targetEntity="App\Entity\Vote", mappedBy="user_id")
+ */
+private $user_vote;
+
 
 public function __construct()
 {
 $this->roles = array('ROLE_USER');
+$this->user_vote = new ArrayCollection();
 }
 
 public function getId(): ?int
@@ -126,6 +132,39 @@ return $this->email;
 public function eraseCredentials(){
 
 }
+
+/**
+ * @return Collection|Vote[]
+ */
+public function getUserVote(): Collection
+{
+    return $this->user_vote;
+}
+
+public function addUserVote(Vote $userVote): self
+{
+    if (!$this->user_vote->contains($userVote)) {
+        $this->user_vote[] = $userVote;
+        $userVote->setUserId($this);
+    }
+
+    return $this;
+}
+
+public function removeUserVote(Vote $userVote): self
+{
+    if ($this->user_vote->contains($userVote)) {
+        $this->user_vote->removeElement($userVote);
+        // set the owning side to null (unless already changed)
+        if ($userVote->getUserId() === $this) {
+            $userVote->setUserId(null);
+        }
+    }
+
+    return $this;
+}
+
+
 
 
 
