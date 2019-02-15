@@ -44,8 +44,11 @@
                             <li class="has_children">
                                 <a href="#">Les conférences</a>
                                 <ul>
+
                                     <li><a href="{{ path('conference_top')}}">Top 10 des conférences</a></li>                                    
                                     <li><a href="{{ path('conference_unvoted')}}">Les conférences sans vote</a></li>                                    
+                                  
+
                                 </ul>
                             </li>
                             {% if is_granted('ROLE_ADMIN') %}
