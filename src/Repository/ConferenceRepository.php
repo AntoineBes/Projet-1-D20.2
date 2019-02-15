@@ -66,6 +66,13 @@ class ConferenceRepository extends ServiceEntityRepository {
         return $stmt->fetchAll();
     }
     
+      public function rechercheConf(string $recherche){
+        return $this->createQueryBuilder('c')
+        ->where('c.title LIKE :title')
+                ->setParameter('title','%'.$recherche.'%')
+                ->getQuery()
+                ->getResult();
+    }
     
 
     /*
@@ -79,4 +86,8 @@ class ConferenceRepository extends ServiceEntityRepository {
       ;
       }
      */
+    
+  
+    
+    
 }
