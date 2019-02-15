@@ -2,14 +2,14 @@
 Antoine BESNARD, Antoine MOTTE, Lucas FOUSSIER<br>
 
 
-<b>Installation</b> :
+<b>Installation</b> :<br>
 cp .env.dist .env <br>
 docker-compose up -d <br>
 docker-compose exec --user=application web composer install <br>
 docker-compose exec web php bin/console d:s:u -f <br>
 
 
-<b>Fonctionnalités</b> :
+<b>Fonctionnalités</b> :<br>
  - Création d'Administrateur via la fonction create-admin (email et mdp en paramètres).
  - Inscription de l'utilisateur avec email, firstname, lastname, password en paramètres.
  - Ensemble de pages pour la gestion de conférence et d'utilisateur (voir URL ci-dessous).
@@ -21,7 +21,7 @@ docker-compose exec web php bin/console d:s:u -f <br>
  
 
     
-<b>URL</b>:
+<b>URL</b>:<br>
  - /homepage (page d'accueil)
  - /admin/user (liste de tout les utilisateurs)
  - /admin/user/{id} (édition/suppression d'utilisateurs)
@@ -35,10 +35,10 @@ docker-compose exec web php bin/console d:s:u -f <br>
  - /login (formulaire de connexion)
 
 
-<b>Gestion du Projet</b> :
-Utilisation de Projects dans l'interface Github suivant le schéma suivant : à faire / en cours / fini.
-Assignation des issues dans le projet, fermeture des issues complétées.
-Mise en place d'une protection de la branch <b>Master</b> pour éviter les commits inopportun.
-Création d'une branch correspondant à chaque issues et/ou chaque modification ou correction à apporter.
-Les commits sont effectués sur les branch auxiliaire suivi d'une pull request sur la branch <b>devlopment</b> sous approbation d'un collaborateur.
+<b>Gestion du Projet</b> : <br>
+Utilisation de Projects dans l'interface Github suivant le schéma suivant : à faire / en cours / fini.<br>
+Assignation des issues dans le projet, fermeture des issues complétées.<br>
+Mise en place d'une protection de la branch <b>Master</b> pour éviter les commits inopportun.<br>
+Création d'une branch correspondant à chaque issues et/ou chaque modification ou correction à apporter.<br>
+Les commits sont effectués sur les branch auxiliaire suivi d'une pull request sur la branch <b>devlopment</b> sous approbation d'un collaborateur.<br>
 
