@@ -4,13 +4,75 @@
 
 {% block body %}
 
-{% for user in users %}
-
-<p>{{ user.email }}</p>
-<p>{{ user.firstname }}</p>
-<p>{{ user.lastname }}</p>
-<a href="{{ path( 'removeuser_id', {'id': user.id}) }} ">Delete</a>
-
-
-{% endfor %}
+  
+    
+    
+    
+    
+        <div class="blog">
+            <div class="container">
+                <div class="row">
+              
+                    
+                    
+                    
+                      {% for user in users %}
+                    
+                          <div class="col-lg-9">
+                        <div class="blog_posts">
+                            <div class="blog_post">
+                                <div class="blog_post_image"><img src="images/blog_1.jpg" alt=""></div>
+                                <div class="blog_post_container">
+                                    <div class="blog_post_content text-center">
+                                        <div class="blog_post_date"><h3>{{ user.email }}</h3></div>
+                                        <div class="blog_post_title"><h5>{{ user.firstname }}{{' - '}} {{ user.lastname }}</h5></div>
+                                        <div class="blog_post_info">
+                                            <ul class="d-flex flex-row align-items-start justify-content-center">
+                                                <li>
+                                                    <ul class="d-flex flex-row align-items-start justify-content-start">
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="blog_post_text">
+                                            <p>{{ user.roles[0]}}</p>
+                                        </div>
+                                        <div class="button button_2 blog_post_button"><a href="{{ path( 'removeuser_id', {'id': user.id}) }}"><span>delete</span><img src="images/arrow.png" alt=""></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                  
+                      </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br>
+                     {% endfor %}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
 {% endblock %}
