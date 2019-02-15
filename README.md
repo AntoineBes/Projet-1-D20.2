@@ -1,5 +1,5 @@
 # Projet-1-D20.2
-Antoine BESNARD, Antoine MOTTE, Lucas FOUSSIER<br>
+<b>Antoine BESNARD, Antoine MOTTE, Lucas FOUSSIER<b><br>
 
 
 <b>Installation</b> :<br>
