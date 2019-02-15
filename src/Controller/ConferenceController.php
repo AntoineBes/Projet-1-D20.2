@@ -98,4 +98,16 @@ public function detail(conference $id){
             ));
 }
 
+
+ /**
+     * @Route("/admin/confInfos/{conference_id}", requirements={"id"=".+"}, name="conf_infos")
+     * @ParamConverter("conference", options={"id" = "conference_id"})
+     */
+    public function confInfos(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request) {
+        $conf = $conference;
+        return $this->render('conference/infosConf.html.twig', [
+                    'infosConf' => $conf
+        ]);
+    }
+
 }
