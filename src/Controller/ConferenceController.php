@@ -51,7 +51,7 @@ class ConferenceController extends AbstractController {
      * @Route("/admin/conf-edit/{conference_id}", requirements={"id"=".+"}, name="conf_modif")
      * @ParamConverter("conference", options={"id" = "conference_id"})
      */
-    public function confModif(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request) {
+    public function confModif(Conference $conference, Request $request) {
         $conf = $conference;
         $form = $this->createForm(ConferenceType::class, $conf);
 
@@ -75,7 +75,7 @@ class ConferenceController extends AbstractController {
      * @Route("/conf-remove/{conference_id}", requirements={"id"=".+"}, name="conf_remove")
      * @ParamConverter("conference", options={"id" = "conference_id"})
      */
-    public function confRemove(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request) {
+    public function confRemove(Conference $conference) {
         $em = $this->getDoctrine()->getEntityManager();
         $em->remove($conference);
         $em->flush();
