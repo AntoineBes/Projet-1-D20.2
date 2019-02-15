@@ -1,0 +1,75 @@
+
+  
+
+            
+            
+            <div class="schedule">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="section_title_container text-center">
+                                     
+                                <div class="section_subtitle"> </div>
+                                <br>
+                                <div class="section_title"><h1>Les conférences</h1></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row schedule_row">
+
+                        
+                        
+                        {% if confs[0] is defined %}
+                        <!-- Schedule Column -->
+                        <div class="col-lg-6 schedule_col">
+                            <div class="schedule_container">
+                                <div class="schedule_title_bar schedule_title_bar_1 text-center">{{ confs[0][0]['btDate'] }}</div>
+                                <div class="schedule_list"  style = "padding:auto">
+                                    <ul>
+                                        {% for conf in confs[0] %}
+                                        <a href = "{{ path( 'conference_id', {'id': conf['id']})}}">
+                                        <li class="d-flex flex-row align-items-center justify-content-start">
+                                            
+                                            <div class="schedule_content">
+                                                <div class="schedule_time">{{ conf['timeDate'] }}</div>
+                                                <div class="schedule_title">{{ conf['title'] }}</div>
+                                                <div class="schedule_info">{{ conf['intervenant'] }}</div>
+                                            </div>
+                                        </li>
+                                        </a>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if confs[1] is defined %}
+                        <!-- Schedule Column -->
+                        <div class="col-lg-6 schedule_col">
+                            <div class="schedule_container">
+                                <div class="schedule_title_bar schedule_title_bar_2 text-center">{{ confs[1][0]['btDate'] }}</div>
+                                <div class="schedule_list"> 
+                                    <ul>
+                                        {% for conf in confs[1] %}
+                                        <a href = "{{ path( 'conference_id', {'id': conf['id']})}}">
+                                        <li class="d-flex flex-row align-items-center justify-content-start">                                            
+                                            <div class="schedule_content">
+                                                <div class="schedule_time">{{ conf['timeDate'] }}</div>
+                                                <div class="schedule_title">{{ conf['title'] }}</div>
+                                                <div class="schedule_info">{{ conf['intervenant'] }}</div>
+                                            </div>
+                                        </li>
+                                        </a>
+                                        <br>
+                                        {% endfor %}                                                                                
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            
