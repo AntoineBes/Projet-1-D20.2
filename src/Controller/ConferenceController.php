@@ -6,8 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Conference;
+use App\Entity\Vote;
 use App\Form\ConferenceType;
+use App\Form\VoteType;
 use App\Repository\ConferenceRepository;
+use App\Repository\VoteRepository;
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
@@ -54,7 +57,6 @@ class ConferenceController extends AbstractController {
     public function confModif(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request) {
         $conf = $conference;
         $form = $this->createForm(ConferenceType::class, $conf);
-
 //        $form->get('date')->setData($conf->getDate("y-m-d"));
 
         $form->handleRequest($request);
@@ -84,26 +86,104 @@ class ConferenceController extends AbstractController {
     }
 
     /**
-     * @Route("/conference/{id}", name="conference_id")
-     */
-    public function detail(conference $id) {
-        return $this->render('conference/id.html.twig', array(
-                    'conference' => $id,
-        ));
-    }
-
-    /**
      * @Route("/admin/confInfos/{conference_id}", requirements={"id"=".+"}, name="conf_infos")
      * @ParamConverter("conference", options={"id" = "conference_id"})
      */
-    public function confInfos(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request) {
+    public function confInfos(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request, VoteRepository $voteRepository) {
         $conf = $conference;
-        return $this->render('conference/infosConf.html.twig', [
-                    'infosConf' => $conf
-        ]);
+        $user = $this->getUser();
+        $form = $this->createForm(VoteType::class);
+        $form->handleRequest($request);
+        $voteUser = $user->getUserVote()->toArray();
+        $voteUser = $voteRepository->findBy(array('user_id' => $user->getId(), 'conf_id' => $conf->getId()));
+        if ($voteUser != null) {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $vote = $voteUser[0];
+                $voteEntity = $vote;
+                $note = $form->getData()->getNote();
+                $voteEntity->setConfId($conf);
+                $voteEntity->setUserId($user);
+                $voteEntity->setNote($note);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($voteEntity);
+                $entityManager->flush();
+                $this->addFlash('notice', 'Conference modifier');
+            } else {
+                $form->get('note')->setData($voteUser[0]->getNote());
+            }
+            return $this->render('conference/infosConf.html.twig', [
+                        'infosConf' => $conf,
+                        'form' => $form->createView(),
+            ]);
+        } else {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $note = $form->getData()->getNote();
+                $voteEntity = new Vote();
+                $voteEntity->setConfId($conf);
+                $voteEntity->setUserId($user);
+                $voteEntity->setNote($note);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($voteEntity);
+                $entityManager->flush();
+                $this->addFlash('notice', 'Conference modifier');
+            }
+            return $this->render('conference/infosConf.html.twig', [
+                        'infosConf' => $conf,
+                        'form' => $form->createView(),
+            ]);
+        }
     }
-    
-     /**
+
+    /**
+     * @Route("/conference/{conference_id}", requirements={"id"=".+"}, name="conference_id")
+     * @ParamConverter("conference", options={"id" = "conference_id"})
+     */
+    public function confInfoss(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request, VoteRepository $voteRepository) {
+        $conf = $conference;
+        $user = $this->getUser();
+        $form = $this->createForm(VoteType::class);
+        $form->handleRequest($request);
+        $voteUser = $user->getUserVote()->toArray();
+        $voteUser = $voteRepository->findBy(array('user_id' => $user->getId(), 'conf_id' => $conf->getId()));
+        if ($voteUser != null) {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $vote = $voteUser[0];
+                $voteEntity = $vote;
+                $note = $form->getData()->getNote();
+                $voteEntity->setConfId($conf);
+                $voteEntity->setUserId($user);
+                $voteEntity->setNote($note);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($voteEntity);
+                $entityManager->flush();
+                $this->addFlash('notice', 'Conference modifier');
+            } else {
+                $form->get('note')->setData($voteUser[0]->getNote());
+            }
+            return $this->render('conference/infosConf.html.twig', [
+                        'infosConf' => $conf,
+                        'form' => $form->createView(),
+            ]);
+        } else {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $note = $form->getData()->getNote();
+                $voteEntity = new Vote();
+                $voteEntity->setConfId($conf);
+                $voteEntity->setUserId($user);
+                $voteEntity->setNote($note);
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($voteEntity);
+                $entityManager->flush();
+                $this->addFlash('notice', 'Conference modifier');
+            }
+            return $this->render('conference/infosConf.html.twig', [
+                        'infosConf' => $conf,
+                        'form' => $form->createView(),
+            ]);
+        }
+    }
+
+    /**
      * @Route("/voted", name="conference_top")
      */
     public function topConf(ConferenceRepository $conferenceRepository) {
@@ -113,8 +193,8 @@ class ConferenceController extends AbstractController {
                     'allConf' => $infosConf,
         ]);
     }
-    
-     /**
+
+    /**
      * @Route("/unvoted", name="conference_unvoted")
      */
     public function unvotedConf(ConferenceRepository $conferenceRepository) {
