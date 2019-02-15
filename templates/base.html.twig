@@ -44,8 +44,8 @@
                             <li class="has_children">
                                 <a href="#">Les conférences</a>
                                 <ul>
-                                    <li><a href="#">Top 10 des conférences</a></li>                                    
-                                    <li><a href="#">Les conférences sans vote</a></li>                                    
+                                    <li><a href="{{ path('conference_top')}}">Top 10 des conférences</a></li>                                    
+                                    <li><a href="{{ path('conference_unvoted')}}">Les conférences sans vote</a></li>                                    
                                 </ul>
                             </li>
                             {% if is_granted('ROLE_ADMIN') %}
@@ -65,7 +65,7 @@
                         <div class="log_reg">
                             <ul class="d-flex flex-row align-items-start justify-content-start">
                                 {% if is_granted( 'IS_AUTHENTICATED_FULLY') %}
-                                    <li><a href="">Mon compte</a></li>    
+                                    <li><a href="/profile">Mon compte</a></li>    
                                     <li><a href="/logout">Se déconnecter</a></li>    
                                 {% else %}
                                     <li><a href="{{ path('login')}}">Connexion</a></li>

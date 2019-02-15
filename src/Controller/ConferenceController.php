@@ -196,9 +196,10 @@ class ConferenceController extends AbstractController {
      */
     public function topConf(ConferenceRepository $conferenceRepository) {
 
-        $infosConf = $conferenceRepository->findAll();
+        $topConf = $conferenceRepository->getTop10Conf();
+    
         return $this->render('conference/topConf.html.twig', [
-                    'allConf' => $infosConf,
+                    'allConf' => $topConf,
         ]);
     }
 
@@ -207,9 +208,9 @@ class ConferenceController extends AbstractController {
      */
     public function unvotedConf(ConferenceRepository $conferenceRepository) {
 
-        $infosConf = $conferenceRepository->findAll();
+        $unvotedConf = $conferenceRepository->getUnvotedConf();
         return $this->render('conference/unvotedConf.html.twig', [
-                    'allConf' => $infosConf,
+                    'allConf' => $unvotedConf,
         ]);
     }
 
