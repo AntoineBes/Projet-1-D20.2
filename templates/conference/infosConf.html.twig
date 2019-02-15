@@ -23,7 +23,9 @@
                             <div class="tab">Informations localisation</div>
                             <div class="tab">Informations date et heure</div>
                             <div class="tab">Interventant présent</div>
+                            {% if is_granted( 'IS_AUTHENTICATED_FULLY') %}
                             <div class="tab">Vote</div>
+                            {% endif %}
                         </div>
 
                         <div class="tab_panels">
@@ -87,18 +89,6 @@
                                             <div class="tab_title"><h3>Vote</h3></div>
                                             <div class="tab_text">
                                                	<div class="row">
-                                                   {#<form action="" method="post">
-                                                        <div class="rating">
-                                                            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5"></label>
-                                                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4"></label>
-                                                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3"></label>
-                                                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2"></label>
-                                                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1"></label>
-                                                            <div class="button">
-                                                                <button type="submit">Soumettre le vote</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>#}
                                                         {{ form_start(form) }} 
                                                         {{ form_widget(form) }}   
                                                         {{ form_end(form) }}

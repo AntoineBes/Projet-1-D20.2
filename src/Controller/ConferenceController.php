@@ -94,7 +94,6 @@ class ConferenceController extends AbstractController {
         $user = $this->getUser();
         $form = $this->createForm(VoteType::class);
         $form->handleRequest($request);
-        $voteUser = $user->getUserVote()->toArray();
         $voteUser = $voteRepository->findBy(array('user_id' => $user->getId(), 'conf_id' => $conf->getId()));
         if ($voteUser != null) {
             if ($form->isSubmitted() && $form->isValid()) {
@@ -135,15 +134,14 @@ class ConferenceController extends AbstractController {
     }
 
     /**
-     * @Route("/conference/{conference_id}", requirements={"id"=".+"}, name="conference_id")
-     * @ParamConverter("conference", options={"id" = "conference_id"})
+     * @Route("/conference/{id}", requirements={"id"=".+"}, name="conference_id")
+     * @ParamConverter("conference", options={"id" = "id"})
      */
     public function confInfoss(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request, VoteRepository $voteRepository) {
         $conf = $conference;
         $user = $this->getUser();
         $form = $this->createForm(VoteType::class);
         $form->handleRequest($request);
-        $voteUser = $user->getUserVote()->toArray();
         $voteUser = $voteRepository->findBy(array('user_id' => $user->getId(), 'conf_id' => $conf->getId()));
         if ($voteUser != null) {
             if ($form->isSubmitted() && $form->isValid()) {
