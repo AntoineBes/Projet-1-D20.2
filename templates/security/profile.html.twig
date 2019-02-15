@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Mon profil !{% endblock %}
+{% block body %}
+<center>
+        <div class="col-xl-4 order-xl-2 order-1">
+            <div class="contact_content">
+                <div class="contact_title">Modifier mon profil</div>
+                <div class="contact_text">
+                    <p>Freedom !</p>
+                </div>
+
+                <div class="contact_form_container">
+                    {{ form_start(form, {'attr': {'class': 'contact_form'}}) }}
+                    
+                    {{ form_widget(form.firstname, {'attr': {'placeholder': 'Prenom...', 'class': 'contact_input'}}) }} 
+                    {{ form_widget(form.lastname, {'attr': {'placeholder': 'Nom de famille...', 'class': 'contact_input'}}) }} 
+                    
+                    {{ form_row(form.submit, {'label': 'Go !', 'attr': {'class': 'contact_button'}}) }}
+
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </center> 
+{% endblock %}

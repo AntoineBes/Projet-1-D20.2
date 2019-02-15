@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste conference !{% endblock %}
+
+{% block body %}
+
+    <div class="blog">
+        <div class="container">
+            <div class="row">
+                
+                {% for conf in allConf %}
+                      </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                    </br>
+                  
+                    <div class="col-lg-9 confDiv">
+                        <div class="blog_posts">
+
+                            <div class="blog_post">
+                                <div class="blog_post_container">
+                                    <div class="blog_post_content text-center">
+                                        <div class="blog_post_date">Date et heure : {{ conf.date|date("d/m/Y H:i")}}</div>
+                                        <div class="blog_post_title confTitle"><h3>{{ conf.title|e }}</h3></div>
+                                        <div class="blog_post_info">
+                                            <ul class="">
+                                                <li></br>Catgeory : {{ conf.sousTitre|e }}</br></li>
+                                                <li></br>Adresse : {{ conf.adresse|e }}</br></li>
+                                                <li></br>Intervenant : {{ conf.intervenant|e }}</br></li>
+                                                <li></br>description : {{ conf.description|e }}</br></li>
+                                            </ul>
+                                            </br>
+                                        </div>
+                                        <div class="button button_2 blog_post_button btn btn-danger"><a href="{{ path( 'conf_remove', {'conference_id': conf.id|e}) }}"><span>Supprimer</span><img src="{{ asset('images/arrow.png') }}" alt=""></a></div>
+                                        <div class="button button_2 blog_post_button btn btn-primary"><a href="{{ path( 'conf_modif', {'conference_id': conf.id|e}) }}"><span>Modifier</span><img src="{{ asset('images/arrow.png') }}" alt=""></a></div>
+                                        <div class="button button_2 blog_post_button btn btn-warning"><a href="{{ path( 'conf_infos', {'conference_id': conf.id|e}) }}"><span>Details</span><img src="{{ asset('images/arrow.png') }}" alt=""></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                    </br>
+                    </br>
+                    </br>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

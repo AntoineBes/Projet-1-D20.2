@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout conference!{% endblock %}
+
+{% block body %}
+
+
+    <center>
+        <div class="col-xl-6 order-xl-2 order-1">
+            <div class="contact_content">
+                <div class="contact_title">Creer une conférence</div>
+                <div class="contact_text">
+                    <p>Il faut ramener de l'oseille !</p>
+                </div>
+
+                <div class="contact_form_container">
+                    {{ form_start(form, {'attr': {'class': 'contact_form'}}) }}
+                    {{ form_widget(form.title, {'attr': {'placeholder': 'Titre...', 'class': 'contact_input'}}) }} 
+                    {{ form_widget(form.description, {'attr': {'placeholder': 'Description...', 'class': 'contact_input'}}) }} 
+                    {{ form_widget(form.adresse, {'attr': {'placeholder': 'Adresse...', 'class': 'contact_input'}}) }} 
+                    <div class="d-flex flex-md-row flex-column align-items-start justify-content-between">                        
+                        <div>{{ form_widget(form.intervenant, {'attr': {'placeholder': 'Intervenant...', 'class': 'contact_input'}}) }} </div>
+                        <div>{{ form_widget(form.date, {'attr': {'placeholder': 'Date de la conf...', 'class': 'contact_input datetimepicker-input', 'data-target': '#conference_date', 'data-toggle': 'datetimepicker'}}) }}</div>                        
+                    </div>
+                    {{ form_widget(form.sous_titre, {'attr': {'placeholder': 'Type de conf...', 'class': 'contact_input'}}) }}
+
+
+
+                    {{ form_row(form.submit, {'label': 'Ajouter !', 'attr': {'class': 'contact_button'}}) }}
+
+
+
+
+
+
+
+                </div>
+
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</center>    
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var txt = $('#conference_date').val();
+
+
+            $('#conference_date').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm',
+                use24hours: true
+            });
+            document.getElementById("conference_date").value = txt;
+
+        });
+    </script>
+{% endblock %}

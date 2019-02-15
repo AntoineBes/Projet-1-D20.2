@@ -1,0 +1,128 @@
+
+
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Infos conference!{% endblock %}
+
+{% block body %}
+
+    <div class="tabs_section">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title_container text-center">
+                        <div class="section_subtitle">“Une conférence, c’est une réunion au cours de laquelle une quinzaine de personnes parlent, des heures durant, des choses qu’elles devraient être en train de faire.”</div>
+                        <div class="section_title"><h1>{{infosConf.title}}</h1></div>
+                    </div>
+                    <div class="tabs_container">
+
+                        <div class="tabs d-flex flex-row align-items-center justify-content-start flex-wrap">
+                            <div class="tab active">Présentation de la conférence</div>
+                            <div class="tab">Informations localisation</div>
+                            <div class="tab">Informations date et heure</div>
+                            <div class="tab">Interventant présent</div>
+                            <div class="tab">Vote</div>
+                        </div>
+
+                        <div class="tab_panels">
+
+                            <div class="tab_panel active">
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <div class="tab_panel_content">
+                                            <div class="tab_title"><h3>{{infosConf.title}} {{' - '}} {{infosConf.soustitre}}</h3></div>
+                                            <div class="tab_text">
+                                                <p>{{infosConf.description}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab_panel">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="tab_panel_content">
+                                            <div class="tab_title"><h3>Localisation de la conférence</h3></div>
+                                            <div class="tab_text">
+                                                <p>{{infosConf.adresse}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab_panel">
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <div class="tab_panel_content">
+                                            <div class="tab_title"><h3>Date et heure</h3></div>
+                                            <div class="tab_text">
+                                                <p>{{infosConf.date|date}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab_panel">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="tab_panel_content">
+                                            <div class="tab_title"><h5>Intervenant</h5></div>
+                                            <div class="tab_text">
+                                                <p>{{infosConf.intervenant}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab_panel">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="tab_panel_content">
+                                            <div class="tab_title"><h3>Vote</h3></div>
+                                            <div class="tab_text">
+                                               	<div class="row">
+                                                        {{ form_start(form) }} 
+                                                        {{ form_widget(form) }}   
+                                                        {{ form_end(form) }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block js %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var txt = $('#conference_date').val();
+
+
+            $('#conference_date').datetimepicker({
+                format: 'YYYY-MM-DD HH:mm',
+                use24hours: true
+            });
+            document.getElementById("conference_date").value = txt;
+        });
+    </script>
+{% endblock %}
