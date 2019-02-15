@@ -67,6 +67,65 @@ class ConferenceRepository extends ServiceEntityRepository {
     }
     
     
+    public function getTop10Conf(){
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+        SELECT conference.id, avg(note) FROM vote 
+        join conference on vote.conf_id_id = conference.id 
+        group by conference.id
+        order by avg(note) desc
+        LIMIT 10       
+        ';
+
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        // returns an array of arrays (i.e. a raw data set)
+        $topid = $stmt->fetchAll();   
+        
+        $finalArray = array();
+                
+        foreach($topid as $key => $value){
+            $finalArray[] = $this->find($value['id']);
+        }
+        
+        return $finalArray;
+        
+    }
+    
+    public function getUnvotedConf(){
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+        SELECT conference.id FROM conference 
+        left join vote on vote.conf_id_id = conference.id 
+        where vote.note is null
+        group by conference.id        
+        order by conference.id desc        
+        ';
+
+
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        // returns an array of arrays (i.e. a raw data set)
+        $topid = $stmt->fetchAll();   
+        
+        $finalArray = array();
+                
+        foreach($topid as $key => $value){
+            $finalArray[] = $this->find($value['id']);
+        }
+        
+        return $finalArray;
+        
+    }
+    
+    
+    
+    
 
     /*
       public function findOneBySomeField($value): ?Conference
