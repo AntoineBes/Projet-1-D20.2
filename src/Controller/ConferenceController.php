@@ -90,6 +90,11 @@ class ConferenceController extends AbstractController {
      * @ParamConverter("conference", options={"id" = "conference_id"})
      */
     public function confInfos(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request, VoteRepository $voteRepository) {
+        $user = $this->getUser();
+        if ($user == null) {
+            $this->addFlash('notice', 'Il faut être inscrit pour voir les conferences !');
+            return $this->redirectToRoute('login');
+        }
         $conf = $conference;
         $user = $this->getUser();
         $form = $this->createForm(VoteType::class);
@@ -138,6 +143,11 @@ class ConferenceController extends AbstractController {
      * @ParamConverter("conference", options={"id" = "id"})
      */
     public function confInfoss(ConferenceRepository $ConferenceRepository, Conference $conference, Request $request, VoteRepository $voteRepository) {
+        $user = $this->getUser();
+        if ($user == null) {
+            $this->addFlash('notice', 'Il faut être inscrit pour voir les conferences !');
+            return $this->redirectToRoute('login');
+        }
         $conf = $conference;
         $user = $this->getUser();
         $form = $this->createForm(VoteType::class);
