@@ -4,7 +4,6 @@
 
 {% block body %}
 
-  
 
 
 
@@ -12,326 +11,277 @@
 
 
 
-            <!-- Home -->
 
-            <div class="home">
+    <!-- Home -->
 
-                <!-- Home Slider -->
-                <div class="home_slider_container">
-                    <div class="owl-carousel owl-theme home_slider">
+    <div class="home">
 
-                        {% if firstConf[0] is defined %}
-                        <!-- Slide -->
-                        <div class="slide">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                            <div class="home_container">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="home_content">
-                                                <div class="home_title">
-                                                    <h1>
-                                                        <span>{{ firstConf[0].date|date("d/m/Y") }}</span>
-                                                        <span>{{ firstConf[0].title }}</span>
-                                                        <span>{{ firstConf[0].soustitre }}</span>
-                                                    </h1>
-                                                </div>
-                                                <div class="home_info_container">
-                                                    <div class="home_info">
-                                                        <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                            <li>{{ firstConf[0].date|date("H:i") }}</li>
-                                                            <li>{{ firstConf[0].adresse }}</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="button button_1 home_button"><a href="#"><span>Plus d'info<img src="images/arrow_2.png" alt=""></span></a></div>
+        <!-- Home Slider -->
+        <div class="home_slider_container">
+            <div class="owl-carousel owl-theme home_slider">
+
+                {% if firstConf[0] is defined %}
+                    <!-- Slide -->
+                    <div class="slide">
+                        <div class="background_image" style="background-image:url(images/index.jpg)"></div>
+                        <div class="home_container">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="home_content">
+                                            <div class="home_title">
+                                                <h1>
+                                                    <span>{{ firstConf[0].date|date("d/m/Y") }}</span>
+                                                    <span>{{ firstConf[0].title }}</span>
+                                                    <span>{{ firstConf[0].soustitre }}</span>
+                                                </h1>
                                             </div>
+                                            <div class="home_info_container">
+                                                <div class="home_info">
+                                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                        <li>{{ firstConf[0].date|date("H:i") }}</li>
+                                                        <li>{{ firstConf[0].adresse }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button button_1 home_button"><a href="#"><span>Plus d'info<img src="images/arrow_2.png" alt=""></span></a></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        {% endif %}
-                        {% if firstConf[1] is defined %}
-                        <!-- Slide -->
-                        <div class="slide">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                            <div class="home_container">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="home_content">
-                                                <div class="home_title">
-                                                    <h1>
-                                                        <span>{{ firstConf[1].date|date("d/m/Y") }}</span>
-                                                        <span>{{ firstConf[1].title }}</span>
-                                                        <span>{{ firstConf[1].soustitre }}</span>
-                                                    </h1>
-                                                </div>
-                                                <div class="home_info_container">
-                                                    <div class="home_info">
-                                                        <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                            <li>{{ firstConf[1].date|date("H:i") }}</li>
-                                                            <li>{{ firstConf[1].adresse }}</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="button button_1 home_button"><a href="#"><span>Plus d'info<img src="images/arrow_2.png" alt=""></span></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                        {% if firstConf[2] is defined %}
-                        <!-- Slide -->
-                        <div class="slide">
-                            <div class="background_image" style="background-image:url(images/index.jpg)"></div>
-                            <div class="home_container">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="home_content">
-                                                <div class="home_title">
-                                                    <h1>
-                                                        <span>{{ firstConf[2].date|date("d/m/Y") }}</span>
-                                                        <span>{{ firstConf[2].title }}</span>
-                                                        <span>{{ firstConf[2].soustitre }}</span>
-                                                    </h1>
-                                                </div>
-                                                <div class="home_info_container">
-                                                    <div class="home_info">
-                                                        <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                            <li>{{ firstConf[2].date|date("H:i") }}</li>
-                                                            <li>{{ firstConf[2].adresse }}</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="button button_1 home_button"><a href="#"><span>Plus d'info<img src="images/arrow_2.png" alt=""></span></a></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                        
-
                     </div>
-
-                        
-                    <!-- Home Slider Dots -->
-                    <div class="home_slider_dots_container">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="home_slider_dots">
-                                        <ul id="home_slider_custom_dots" class="home_slider_custom_dots d-flex flex-row align-items-start justify-content-start">
-                                            {% if firstConf[0] is defined %}
-                                            <li class="home_slider_custom_dot active">01.</li>
-                                            {% endif %}
-                                            {% if firstConf[1] is defined %}
-                                            <li class="home_slider_custom_dot">02.</li>
-                                            {% endif %}
-                                            {% if firstConf[2] is defined %}
-                                            <li class="home_slider_custom_dot">03.</li>
-                                            {% endif %}
-                                        </ul>
+                {% endif %}
+                {% if firstConf[1] is defined %}
+                    <!-- Slide -->
+                    <div class="slide">
+                        <div class="background_image" style="background-image:url(images/IMGCONF1.png)"></div>
+                        <div class="home_container">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="home_content">
+                                            <div class="home_title">
+                                                <h1>
+                                                    <span>{{ firstConf[1].date|date("d/m/Y") }}</span>
+                                                    <span>{{ firstConf[1].title }}</span>
+                                                    <span>{{ firstConf[1].soustitre }}</span>
+                                                </h1>
+                                            </div>
+                                            <div class="home_info_container">
+                                                <div class="home_info">
+                                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                        <li>{{ firstConf[1].date|date("H:i") }}</li>
+                                                        <li>{{ firstConf[1].adresse }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button button_1 home_button"><a href="#"><span>Plus d'info<img src="images/arrow_2.png" alt=""></span></a></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>		
+                        </div>
                     </div>
+                {% endif %}
+                {% if firstConf[2] is defined %}
+                    <!-- Slide -->
+                    <div class="slide">
+                        <div class="background_image" style="background-image:url(images/IMGCONF2.png)"></div>
+                        <div class="home_container">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="home_content">
+                                            <div class="home_title">
+                                                <h1>
+                                                    <span>{{ firstConf[2].date|date("d/m/Y") }}</span>
+                                                    <span>{{ firstConf[2].title }}</span>
+                                                    <span>{{ firstConf[2].soustitre }}</span>
+                                                </h1>
+                                            </div>
+                                            <div class="home_info_container">
+                                                <div class="home_info">
+                                                    <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                        <li>{{ firstConf[2].date|date("H:i") }}</li>
+                                                        <li>{{ firstConf[2].adresse }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="button button_1 home_button"><a href="#"><span>Plus d'info<img src="images/arrow_2.png" alt=""></span></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
 
-                </div>
+
             </div>
 
-            <!-- Timer -->
 
-            <div class="timer_section">
-                <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/timer.jpg" data-speed="0.8"></div>
-                <div class="timer_overlay"></div>
+            <!-- Home Slider Dots -->
+            <div class="home_slider_dots_container">
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <div class="timer_container">
-                                <ul class="timer d-flex flex-row align-items-center justify-content-start">
-                                    <li class="d-flex flex-column justify-content-start align-items-center">
-                                        <div id="day" class="timer_num">3</div>
-                                        <div class="timer_unit">Days</div>
-                                    </li>
-                                    <li class="d-flex flex-column justify-content-start align-items-center">
-                                        <div id="hour" class="timer_num">00</div>
-                                        <div class="timer_unit">Hours</div>
-                                    </li>
-                                    <li class="d-flex flex-column justify-content-start align-items-center">
-                                        <div id="minute" class="timer_num">00</div>
-                                        <div class="timer_unit">Minutes</div>
-                                    </li>
-                                    <li class="d-flex flex-column justify-content-start align-items-center">
-                                        <div id="second" class="timer_num">00</div>
-                                        <div class="timer_unit">Seconds</div>
-                                    </li>
+                            <div class="home_slider_dots">
+                                <ul id="home_slider_custom_dots" class="home_slider_custom_dots d-flex flex-row align-items-start justify-content-start">
+                                    {% if firstConf[0] is defined %}
+                                        <li class="home_slider_custom_dot active">01.</li>
+                                        {% endif %}
+                                        {% if firstConf[1] is defined %}
+                                        <li class="home_slider_custom_dot">02.</li>
+                                        {% endif %}
+                                        {% if firstConf[2] is defined %}
+                                        <li class="home_slider_custom_dot">03.</li>
+                                        {% endif %}
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>		
             </div>
 
-            <!-- Tabs Section -->
+        </div>
+    </div>
 
+    <!-- Timer -->
 
-            <!-- Schedule -->
-
-            <br><br>
-            
-            <div class="schedule">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="section_title_container text-center">
-                                     
-                                <div class="section_subtitle">see what's all about</div>
-                                <div class="section_title"><h1>Schedule</h1></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row schedule_row">
-
-                        <!-- Schedule Column -->
-                        <div class="col-lg-6 schedule_col">
-                            <div class="schedule_container">
-                                <div class="schedule_title_bar schedule_title_bar_1 text-center">Day 1. <span>February 12, 2019</span></div>
-                                <div class="schedule_list">
-                                    <ul>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_1.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">08:00 AM - 09:00 AM</div>
-                                                <div class="schedule_title">Grand Opening</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_2.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">09:00 AM - 10:00 AM</div>
-                                                <div class="schedule_title">Marketing 101</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_3.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">10:00 AM - 11:00 AM</div>
-                                                <div class="schedule_title">Big Marketing Strategy</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_4.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">11:00 AM - 12:00 AM</div>
-                                                <div class="schedule_title">Coffe Break</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_5.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">12:00 AM - 13:00 PM</div>
-                                                <div class="schedule_title">Online Strategy</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Schedule Column -->
-                        <div class="col-lg-6 schedule_col">
-                            <div class="schedule_container">
-                                <div class="schedule_title_bar schedule_title_bar_2 text-center">Day 2. <span>February 13, 2019</span></div>
-                                <div class="schedule_list">
-                                    <ul>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_6.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">08:00 AM - 09:00 AM</div>
-                                                <div class="schedule_title">Grand Opening</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_7.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">09:00 AM - 10:00 AM</div>
-                                                <div class="schedule_title">Marketing 101</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_8.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">10:00 AM - 11:00 AM</div>
-                                                <div class="schedule_title">Big Marketing Strategy</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_9.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">11:00 AM - 12:00 AM</div>
-                                                <div class="schedule_title">Coffe Break</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_10.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">12:00 AM - 13:00 PM</div>
-                                                <div class="schedule_title">Online Strategy</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="schedule_image"><img src="images/schedule_11.jpg" alt=""></div>
-                                            <div class="schedule_content">
-                                                <div class="schedule_time">13:00 PM - 14:00 PM</div>
-                                                <div class="schedule_title">Online Strategy</div>
-                                                <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                        
+    <div class="timer_section">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/timer.jpg" data-speed="0.8"></div>
+        <div class="timer_overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="timer_container">
+                        <ul class="timer d-flex flex-row align-items-center justify-content-start">
+                            <li class="d-flex flex-column justify-content-start align-items-center">
+                                <div id="day" class="timer_num">3</div>
+                                <div class="timer_unit">Days</div>
+                            </li>
+                            <li class="d-flex flex-column justify-content-start align-items-center">
+                                <div id="hour" class="timer_num">00</div>
+                                <div class="timer_unit">Hours</div>
+                            </li>
+                            <li class="d-flex flex-column justify-content-start align-items-center">
+                                <div id="minute" class="timer_num">00</div>
+                                <div class="timer_unit">Minutes</div>
+                            </li>
+                            <li class="d-flex flex-column justify-content-start align-items-center">
+                                <div id="second" class="timer_num">00</div>
+                                <div class="timer_unit">Seconds</div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class = "container">
-                <div class="button button_1 home_button col-3"><a href="#"><span><img src="images/arrow_3.png" alt="">  Précédent</span></a></div>
-                <div class="button button_1 home_button col-3" style = "float:right"><a href="#"><span>Suivant<img src="images/arrow_2.png" alt=""></span></a></div>
-            </div>
+        </div>
+    </div>
+
+    <!-- Tabs Section -->
 
 
+    <!-- Schedule -->
 
+    <br><br>
 
-
-
-
-
-
-
-
-
-
+    <div class="schedule" id = "conf-ajax-place">
+        <center>
+            <svg id="circle" height="200" width="200" 
+                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+            <image x="0" y="0" height="200" width="200"  xlink:href="/images/waiting.svg" />
+            </svg>
+        </center>
+    </div>
+    <div class = "container-fluid" style = "background-color: white">
+        <center>
+            <div class="button button_1 home_button col-3" id = "previousButton" onclick = "previousPage();" style = "margin-top:0px; display:none"><span><img src="images/arrow_3.png" alt="">  Précédent</span></div>
+            <div class="button button_1 home_button col-3" id = "nextButton" onclick = "nextPage();" style = "margin-top:0px"><span>Suivant <img src="images/arrow_2.png" alt=""></span></div>
+        </center>
+    </div>
 
 
 {% endblock %}
+
+
+
+
+{% block js %}
+    <script type="text/javascript">
+        var page = 1;
+        var loader;
+        
+        function getLoader(){
+            loader = $("#conf-ajax-place").html();            
+        }
+
+        function getPage(curpage) {
+            page = curpage;
+            displayLoader();
+            $.post(
+                    $urlDataForm = '/service/list-conf/' + page,
+                    {
+        {#                        username: $("#id_refrence_ac").val()#}
+                    },
+                    function (data) {
+                        var oldData = $("#conf-ajax-place").html();
+                        if (data != '-1') {
+                            $("#conf-ajax-place").html(data);
+                        } else {
+                            disableNextButton();
+                            page--;
+                            getPage(page);
+                        }
+                    },
+                    'text'
+                    );
+        }
+
+        function nextPage() {
+            getPage(page + 1);
+            enableBackButton();
+        }
+        function previousPage() {
+
+            getPage(page - 1);
+            enableNextButton();
+            if (page == 1) {
+                disableBackButton();
+            }
+
+        }
+
+        function displayLoader(){
+            $("#conf-ajax-place").html(loader);
+        }
+
+        function disableBackButton() {
+            $("#previousButton").css("display", "none");
+        }
+
+        function disableNextButton() {
+            $("#nextButton").css("display", "none");
+        }
+
+        function enableBackButton() {
+            $("#previousButton").css("display", "");
+        }
+
+        function enableNextButton() {
+            $("#nextButton").css("display", "");
+        }
+
+
+
+        $(document).ready(function () {
+            getLoader();
+            getPage(page);            
+            disableBackButton();
+
+        });
+    </script>
+{% endblock %}
+
+
