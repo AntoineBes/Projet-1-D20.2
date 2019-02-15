@@ -18,7 +18,7 @@ docker-compose exec web php bin/console d:s:u -f <br>
  - Liste des 10 conférences les plus votées.
  - Liste des conférences n"ayant pas de vote.
  - Administration des conférences (création, édition, suppression) et des utilisateurs (édition, suppression) par les administrateurs.
- 
+ - Système de fixtures (voir ci-dessous).
 
     
 <b>URL</b>:<br>
@@ -41,4 +41,13 @@ Assignation des issues dans le projet, fermeture des issues complétées.<br>
 Mise en place d'une protection de la branch <b>Master</b> pour éviter les commits inopportun.<br>
 Création d'une branch correspondant à chaque issues et/ou chaque modification ou correction à apporter.<br>
 Les commits sont effectués sur les branch auxiliaire suivi d'une pull request sur la branch <b>devlopment</b> sous approbation d'un collaborateur.<br>
+
+<b>Fixtures</b> : <br>
+Utiliser la commande php bin/console doctrine:fixtures:load pour executer les fixtures.<br>
+UserFixtures.php génère un administrateur et 5 utilisateurs :<br>
+Admin - Login : john@doe.com / Mdp : admin
+Chaque utilisateur est suivi d'un chiffre allant de 0 à 4, ils s'appellent tous john suivit de leur chiffre,<br>
+les mots de passe sont tous user suivit de ce même chiffre exemple : <br>
+john0@doe.com / user0 <br>
+john4@doe.com / user4 <br>
 
