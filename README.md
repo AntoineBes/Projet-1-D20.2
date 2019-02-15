@@ -1,9 +1,6 @@
 # Projet-1-D20.2
 Antoine BESNARD, Antoine MOTTE, Lucas FOUSSIER<br>
 
-![alt text](https://github.com/AntoineBes/Projet-1-D20.2/public/images/IMGCONF1.png)
-<br>
-
 URL:
  - /homepage (page d'accueil)
  - /admin/user (liste de tout les utilisateurs)
@@ -16,3 +13,5 @@ URL:
  - /unvoted (liste des conférences non votées)
  - /conf/{id} (voir les informations d'un conférence avec possibilité de voter et/ou s'inscrire)
  - /login (formulaire de connexion)
+
+
