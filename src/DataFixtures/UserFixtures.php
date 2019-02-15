@@ -20,7 +20,7 @@ private $encoder;
     {
         
    $user = new User();
-    $user->setRoles(['ROLES_USER', 'ROLES_ADMIN']);
+    $user->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
     $user->setFirstname('John');
     $user->setLastname('Doe');
     $user->setEmail('john@doe.com');
@@ -31,7 +31,7 @@ private $encoder;
     
             for ($i = 0; $i < 5; $i++) {
    $users = new User();
-    $users->setRoles(['ROLES_USER']);
+    $users->setRoles(['ROLE_USER']);
     $users->setFirstname('John'.$i);
     $users->setLastname('Doe');
     $users->setEmail('john'. $i .'@doe.com');
