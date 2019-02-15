@@ -51,3 +51,5 @@ les mots de passe sont tous user suivit de ce même chiffre exemple : <br>
 john0@doe.com / user0 <br>
 john4@doe.com / user4 <br>
 
+ConfFixtures.php génère 4 conférences<br>
+Les informations de chaque conférences sont différentes.<br>
