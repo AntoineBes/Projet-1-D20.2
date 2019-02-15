@@ -1,14 +1,8 @@
-
-
-
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Ajout conference!{% endblock %}
 
 {% block body %}
-
-
 
 
     <center>
@@ -61,14 +55,14 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var txt = $('#conference_date').val();
-            
-            
+
+
             $('#conference_date').datetimepicker({
                 format: 'YYYY-MM-DD HH:mm',
                 use24hours: true
             });
             document.getElementById("conference_date").value = txt;
-            
+
         });
     </script>
 {% endblock %}
