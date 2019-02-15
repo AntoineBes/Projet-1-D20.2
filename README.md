@@ -27,7 +27,7 @@ docker-compose exec web php bin/console d:s:u -f <br>
  - /admin/user/{id} (édition/suppression d'utilisateurs)
  - /admin/conference (liste de toutes les conférences)
  - /admin/edit_conference (édition/suppression de conférence)
- - /user/{id} (édition des informations personnelles)
+ - /profile (édition des informations personnelles)
  - /subscribe (formulaire de création de compte utilisateur)
  - /voted (liste des 10 conférences les plus votées)
  - /unvoted (liste des conférences non votées)
