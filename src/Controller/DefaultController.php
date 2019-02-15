@@ -14,6 +14,18 @@ class DefaultController extends AbstractController {
     public function index(ConferenceRepository $conferenceRepository) {
         $confHomepage = $conferenceRepository->findBy(array(), array('id' => 'desc'), 3, null);
         
+        
+        if(isset($_POST['recherche'])){
+        
+            $recherche =  $_POST['recherche'];
+
+            $result = $conferenceRepository->rechercheConf($recherche);
+            
+            return $this->render('default/resultRecherche.html.twig', ['conf' => $result]);
+      
+        }
+        
+        
         return $this->render('default/index.html.twig', ['firstConf' => $confHomepage]);
     }
     

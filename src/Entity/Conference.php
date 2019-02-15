@@ -166,6 +166,5 @@ class Conference
 
         return $this;
     }
-
-
+    
 }

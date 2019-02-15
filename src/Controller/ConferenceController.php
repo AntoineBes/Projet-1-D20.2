@@ -213,5 +213,11 @@ class ConferenceController extends AbstractController {
                     'allConf' => $unvotedConf,
         ]);
     }
+    
+    public function rechercher(ConferenceRepository $conferenceRepository) {
+        $recherche = $_POST['recherche'];
+        dd($recherche);
+        $conferenceRepository->rechercheConf($recherche);
+    }
 
 }
