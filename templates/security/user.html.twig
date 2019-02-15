@@ -32,7 +32,8 @@
                                         <div class="blog_post_text">
                                             <p>{{ user.roles[0]}}</p>
                                         </div>
-                                        <div class="button button_2 blog_post_button"><a href="{{ path( 'removeuser_id', {'id': user.id}) }}"><span>delete</span><img src="images/arrow.png" alt=""></a></div>
+                                        <div class="button button_2 blog_post_button btn btn-danger"><a href="{{ path( 'removeuser_id', {'id': user.id}) }}"><span>delete</span><img src="{{ asset('images/arrow.png') }}" alt=""></a></div>
+                                        <div class="button button_2 blog_post_button"><a href="{{ path( 'edit_user', {'user_id': user.id}) }}"><span>Modifier</span><img src="{{ asset('images/arrow.png') }}" alt=""></a></div>
                                     </div>
                                 </div>
                             </div>
