@@ -1,4 +1,5 @@
 # Projet-1-D20.2
+
 <b>Antoine BESNARD, Antoine MOTTE, Lucas FOUSSIER</b><br>
 
 
@@ -28,11 +29,21 @@ docker-compose exec web php bin/console d:s:u -f <br>
  - /admin/conference (liste de toutes les conférences)
  - /admin/edit_conference (édition/suppression de conférence)
  - /profile (édition des informations personnelles)
+
+URL:
+ - /homepage (page d'accueil)
+ - /admin/user (liste de tout les utilisateurs)
+ - /admin/user/{id} (édition/suppression d'utilisateurs)
+ - /admin/conf (liste de toutes les conférences)
+ - /admin/edit_conf (édition/suppression de conférence)
+ - /user/{id} (édition des informations personnelles)
+
  - /subscribe (formulaire de création de compte utilisateur)
  - /voted (liste des 10 conférences les plus votées)
  - /unvoted (liste des conférences non votées)
  - /conf/{id} (voir les informations d'un conférence avec possibilité de voter et/ou s'inscrire)
  - /login (formulaire de connexion)
+
 
 
 <b>Gestion du Projet</b> : <br>
@@ -53,3 +64,4 @@ john4@doe.com / user4 <br>
 
 ConfFixtures.php génère 4 conférences<br>
 Les informations de chaque conférences sont différentes.<br>
+
