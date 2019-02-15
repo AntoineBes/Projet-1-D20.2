@@ -45,8 +45,8 @@ Les commits sont effectués sur les branch auxiliaire suivi d'une pull request s
 <b>Fixtures</b> : <br>
 Utiliser la commande php bin/console doctrine:fixtures:load pour executer les fixtures.<br>
 UserFixtures.php génère un administrateur et 5 utilisateurs :<br>
-Admin - Login : john@doe.com / Mdp : admin
-Chaque utilisateur est suivi d'un chiffre allant de 0 à 4, ils s'appellent tous john suivit de leur chiffre,<br>
+Admin - Login : john@doe.com / Mdp : admin<br>
+Chaque utilisateur est suivi d'un chiffre allant de 0 à 4, ils s'appellent tous john suivit de leur chiffre,
 les mots de passe sont tous user suivit de ce même chiffre exemple : <br>
 john0@doe.com / user0 <br>
 john4@doe.com / user4 <br>
